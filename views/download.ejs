@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download | myShare101 - File Sharing Made Easy</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <a href="/"><img src="/img/logo.png" alt="myShare101 logo" class="logo"></a>
+    <a class="about-btn" href="https://myshare101.herokuapp.com/about">About</a>
+    <section class="download">
+        <img class="download__icon" src="/img/download-sd.svg" alt="myShare101-download">
+        <% if(locals.error){ %>
+        <h4><%= locals.error %> 😏</h4>
+        <% } else { %>
+        <h2>Your file is ready to download</h2>
+        <p>Link expires in 24 hours</p>
+        <div class="download__meta">
+            <h4><%= fileName %></h4>
+            <small><%= parseInt(fileSize/1000) %> KB</small>
+        </div>
+        <div class="download-btn-container">
+            <a href="<%= downloadLink %>">Download file</a>
+        </div>
+        <% } %>
+    </section>
+    <div class="fixed-footer">
+        <p>2021 &copy Team Project</p>
+    </div>
+
+</body>
+
+</html>
